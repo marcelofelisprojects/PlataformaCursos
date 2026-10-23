@@ -1,0 +1,6 @@
+@PlataformaCursos_HostAddress = http://localhost:5119
+
+GET {{PlataformaCursos_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
