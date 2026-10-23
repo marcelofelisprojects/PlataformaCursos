@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PlataformaCursos.Modules.Modalities.Entities;
-
 namespace PlataformaCursos.Infrastructure.Data;
 
 public class AppDbContext : DbContext

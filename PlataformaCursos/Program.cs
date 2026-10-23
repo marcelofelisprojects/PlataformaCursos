@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PlataformaCursos.Infrastructure.Data;
 using PlataformaCursos.Modules.Modalities.Repositories;
+using PlataformaCursos.Modules.Modalities.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,13 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddScoped<CreateModalityService>();
+builder.Services.AddScoped<UpdateModalityService>();
+builder.Services.AddScoped<DeleteModalityService>();
+builder.Services.AddScoped<GetAllModalitiesService>();
+builder.Services.AddScoped<GetModalityService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -28,5 +36,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
+
 
 app.Run();

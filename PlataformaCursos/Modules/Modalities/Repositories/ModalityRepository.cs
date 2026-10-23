@@ -28,10 +28,15 @@ public class ModalityRepository : IModalityRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Modality modality)
+    public async Task<Modality> UpdateAsync(Modality modality)
     {
         _context.Modalities.Update(modality);
+
         await _context.SaveChangesAsync();
+
+        await _context.Entry(modality).ReloadAsync();
+
+        return modality;
     }
 
     public async Task DeleteAsync(Modality modality)

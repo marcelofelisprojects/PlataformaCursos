@@ -22,8 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\Migrations\" />
-    <Folder Include="Modules\Modalities\Services\" />
-    <Folder Include="Shared\Exceptions\" />
     <Folder Include="Shared\Extensions\" />
     <Folder Include="Shared\Validators\" />
   </ItemGroup>

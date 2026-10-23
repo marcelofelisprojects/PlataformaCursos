@@ -7,7 +7,8 @@ namespace PlataformaCursos.Modules.Modalities.Repositories
         Task<List<Modality>> GetAllAsync();
         Task<Modality?> GetByIdAsync(Guid id);
         Task AddAsync(Modality modality);
-        Task UpdateAsync(Modality modality);
+        Task <Modality>UpdateAsync(Modality modality);
         Task DeleteAsync(Modality modality);
+      
     }
 }
