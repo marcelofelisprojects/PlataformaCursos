@@ -14,12 +14,12 @@ public class CategoryRepository : ICategoryRepository
 
     public async Task<List<Category>> GetAllAsync()
     {
-        return await _context.Categories.ToListAsync();
+        return await _context.Categories.Include(x => x.Modality).ToListAsync();
     }
 
     public async Task<Category?> GetByIdAsync(Guid id)
     {
-        return await _context.Categories.FindAsync(id);
+        return await _context.Categories.Include(x => x.Modality).FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public async Task AddAsync(Category category)

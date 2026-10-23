@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using PlataformaCursos.Infrastructure.Data;
 using PlataformaCursos.Modules.Categories.Repositories;
 using PlataformaCursos.Modules.Categories.Services;
+using PlataformaCursos.Modules.Courses.Repositories;
+using PlataformaCursos.Modules.Courses.Services;
 using PlataformaCursos.Modules.Modalities.Repositories;
 using PlataformaCursos.Modules.Modalities.Services;
 
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IModalityRepository, ModalityRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddControllers();
 
@@ -18,15 +21,23 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<CreateModalityService>();
 builder.Services.AddScoped<UpdateModalityService>();
-builder.Services.AddScoped<DeleteModalityService>();
 builder.Services.AddScoped<GetAllModalitiesService>();
 builder.Services.AddScoped<GetModalityService>();
+builder.Services.AddScoped<DeleteModalityService>();
+
 builder.Services.AddScoped<CreateCategoryService>();
-builder.Services.AddScoped<GetCategoryService>();
-builder.Services.AddScoped<GetCategoryService>();
 builder.Services.AddScoped<UpdateCategoryService>();
-builder.Services.AddScoped<DeleteCategoryService>();
 builder.Services.AddScoped<GetAllCategoriesService>();
+builder.Services.AddScoped<GetCategoryService>();
+builder.Services.AddScoped<DeleteCategoryService>();
+
+
+builder.Services.AddScoped<CreateCourseService>();
+builder.Services.AddScoped<UpdateCourseService>();
+builder.Services.AddScoped<GetCourseService>();
+builder.Services.AddScoped<GetAllCoursesService>();
+builder.Services.AddScoped<DeleteCourseService>();
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

@@ -12,8 +12,8 @@ using PlataformaCursos.Infrastructure.Data;
 namespace PlataformaCursos.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261023205927_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20261023224123_NullableCourseFields")]
+    partial class NullableCourseFields
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,55 @@ namespace PlataformaCursos.Infrastructure.Migrations
                     b.ToTable("categories");
                 });
 
+            modelBuilder.Entity("PlataformaCursos.Modules.Courses.Entities.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime?>("AvailableFrom")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageFileName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TargetAudience")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Workload")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("courses");
+                });
+
             modelBuilder.Entity("PlataformaCursos.Modules.Modalities.Entities.Modality", b =>
                 {
                     b.Property<Guid>("Id")
@@ -86,6 +135,17 @@ namespace PlataformaCursos.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Modality");
+                });
+
+            modelBuilder.Entity("PlataformaCursos.Modules.Courses.Entities.Course", b =>
+                {
+                    b.HasOne("PlataformaCursos.Modules.Categories.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

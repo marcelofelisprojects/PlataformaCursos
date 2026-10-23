@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace PlataformaCursos.Modules.Modalities.DTOs
 {
     public class CreateModalityDTO

@@ -1,6 +1,8 @@
 ﻿using PlataformaCursos.Modules.Categories.DTOs;
 using PlataformaCursos.Modules.Categories.Entities;
 using PlataformaCursos.Modules.Categories.Repositories;
+using PlataformaCursos.Modules.Modalities.Entities;
+using PlataformaCursos.Modules.Modalities.Repositories;
 using PlataformaCursos.Shared.Exceptions;
 
 namespace PlataformaCursos.Modules.Categories.Services
@@ -8,10 +10,12 @@ namespace PlataformaCursos.Modules.Categories.Services
     public class UpdateCategoryService
     {
         private readonly ICategoryRepository _repository;
+        private readonly IModalityRepository _modalityRepository;
 
-        public UpdateCategoryService(ICategoryRepository repository)
+        public UpdateCategoryService(ICategoryRepository repository, IModalityRepository modalityRepository)
         {
             _repository = repository;
+            _modalityRepository = modalityRepository;
         }
 
 
@@ -26,6 +30,15 @@ namespace PlataformaCursos.Modules.Categories.Services
             }
 
             categoryExists.Name = category.Name;
+
+            Modality? modalityExists = await _modalityRepository.GetByIdAsync(id);
+
+            if (modalityExists == null)
+            {
+                throw new NotFoundException($"Modalidade não encontrada");
+            }
+
+
             categoryExists.ModalityId = category.ModalityId;
 
             return await _repository.UpdateAsync(categoryExists);      
