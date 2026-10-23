@@ -1,5 +1,4 @@
-﻿using PlataformaCursos.Modules.Modalities.DTOs;
-using PlataformaCursos.Modules.Modalities.Entities;
+﻿using PlataformaCursos.Modules.Modalities.Entities;
 using PlataformaCursos.Modules.Modalities.Repositories;
 
 namespace PlataformaCursos.Modules.Modalities.Services

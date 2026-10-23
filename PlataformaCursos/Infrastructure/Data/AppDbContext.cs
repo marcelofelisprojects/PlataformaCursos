@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PlataformaCursos.Modules.Categories.Entities;
 using PlataformaCursos.Modules.Modalities.Entities;
 namespace PlataformaCursos.Infrastructure.Data;
 
@@ -10,6 +11,7 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Modality> Modalities { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

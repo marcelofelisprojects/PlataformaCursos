@@ -9,11 +9,11 @@ using PlataformaCursos.Infrastructure.Data;
 
 #nullable disable
 
-namespace PlataformaCursos.Migrations
+namespace PlataformaCursos.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261023175030_CreateModalities")]
-    partial class CreateModalities
+    [Migration("20261023205927_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,32 @@ namespace PlataformaCursos.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("PlataformaCursos.Modules.Categories.Entities.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("ModalityId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ModalityId");
+
+                    b.ToTable("categories");
+                });
 
             modelBuilder.Entity("PlataformaCursos.Modules.Modalities.Entities.Modality", b =>
                 {
@@ -49,6 +75,17 @@ namespace PlataformaCursos.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("modalities");
+                });
+
+            modelBuilder.Entity("PlataformaCursos.Modules.Categories.Entities.Category", b =>
+                {
+                    b.HasOne("PlataformaCursos.Modules.Modalities.Entities.Modality", "Modality")
+                        .WithMany()
+                        .HasForeignKey("ModalityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Modality");
                 });
 #pragma warning restore 612, 618
         }

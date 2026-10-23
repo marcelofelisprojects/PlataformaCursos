@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlataformaCursos.Modules.Modalities.DTOs;
 using PlataformaCursos.Modules.Modalities.Entities;
-using PlataformaCursos.Modules.Modalities.Repositories;
 using PlataformaCursos.Modules.Modalities.Services;
 
 namespace PlataformaCursos.Controllers;
