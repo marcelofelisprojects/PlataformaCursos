@@ -28,5 +28,29 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Modality>()
             .Property(x => x.UpdatedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        modelBuilder.Entity<Category>()
+           .Property(x => x.Id)
+           .HasDefaultValueSql("gen_random_uuid()");
+
+        modelBuilder.Entity<Category>()
+            .Property(x => x.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        modelBuilder.Entity<Category>()
+            .Property(x => x.UpdatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        modelBuilder.Entity<Course>()
+           .Property(x => x.Id)
+           .HasDefaultValueSql("gen_random_uuid()");
+
+        modelBuilder.Entity<Course>()
+            .Property(x => x.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        modelBuilder.Entity<Course>()
+            .Property(x => x.UpdatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
     }
 }

@@ -31,7 +31,7 @@ namespace PlataformaCursos.Modules.Categories.Services
 
             categoryExists.Name = category.Name;
 
-            Modality? modalityExists = await _modalityRepository.GetByIdAsync(id);
+            Modality? modalityExists = await _modalityRepository.GetByIdAsync(category.ModalityId);
 
             if (modalityExists == null)
             {
