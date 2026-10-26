@@ -1,4 +1,4 @@
-# Catálogo de Cursos SESI/SENAI 📚
+# Catálogo de Cursos SESI 📚
 
 > Aplicação Full Stack desenvolvida para centralizar, gerenciar e oferecer um catálogo detalhado de cursos disponíveis no SESI e no SENAI.
 
@@ -53,7 +53,7 @@ Este projeto está dividido em dois repositórios independentes: Backend e Front
 
 ### 🌐 2. Configuração do Frontend (React.js)
 
-**Repositório:** `https://github.com`
+**Repositório:** `https://github.com/marcelofelisprojects/plataforma_cursos_frontend.git`
 
 #### Pré-requisitos:
 - Node.js instalado em sua máquina
@@ -64,7 +64,7 @@ Este projeto está dividido em dois repositórios independentes: Backend e Front
 1. Certifique-se de que o **Node.js** está instalado corretamente no seu sistema.
 2. Clone o repositório do frontend:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/marcelofelisprojects/plataforma_cursos_frontend.git
    ```
 3. Abra a pasta do projeto clonado dentro do **VS Code**.
 4. Configure o endereço da API do backend alterando a URL base no arquivo:
