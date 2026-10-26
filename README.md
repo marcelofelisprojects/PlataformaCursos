@@ -4,7 +4,7 @@
 
 ## 🎯 Objetivo do Projeto
 
-Esta plataforma foi criada com o objetivo de facilitar o acesso à informação sobre qualificações profissionais, cursos técnicos e formações continuadas oferecidas pelas instituições SESI e SENAI. O sistema é composto por uma API desenvolvida no ecossistema .NET e uma interface web moderna construída em React.js.
+Esta plataforma foi criada com o objetivo de facilitar o acesso à informação sobre qualificações profissionais, cursos técnicos e formações continuadas oferecidas pelas instituições SESI. O sistema é composto por uma API desenvolvida no ecossistema .NET e uma interface web moderna construída em React.js.
 
 ---
 
@@ -28,7 +28,7 @@ Este projeto está dividido em dois repositórios independentes: Backend e Front
 
 ### 🖥️ 1. Configuração do Backend (.NET + Postgres)
 
-**Repositório:** `https://github.com`
+**Repositório:** `https://github.com/marcelofelisprojects/PlataformaCursos.git`
 
 #### Pré-requisitos:
 - SDK do .NET instalado
@@ -39,7 +39,7 @@ Este projeto está dividido em dois repositórios independentes: Backend e Front
 1. Abra o seu gerenciador do PostgreSQL (ex: pgAdmin ou terminal) e **crie um banco de dados** chamado `plataforma_cursos`.
 2. Clone o repositório do backend:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/marcelofelisprojects/PlataformaCursos.git
    ```
 3. Acesse a pasta do projeto e abra o arquivo de solução **`PlataformaCursos.slnx`** utilizando o Visual Studio.
 4. Abra o *Console do Gerenciador de Pacotes* (Package Manager Console) ou a CLI do seu terminal e rode as migrações para criar as tabelas correspondentes:
