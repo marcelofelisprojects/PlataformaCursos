@@ -44,7 +44,7 @@ Este projeto está dividido em dois repositórios independentes: Backend e Front
 3. Acesse a pasta do projeto e abra o arquivo de solução **`PlataformaCursos.slnx`** utilizando o Visual Studio.
 4. Abra o *Console do Gerenciador de Pacotes* (Package Manager Console) ou a CLI do seu terminal e rode as migrações para criar as tabelas correspondentes:
    ```bash
-   Add-Migration Initialm
+   Add-Migration Initial
    Update-Database
    ```
 5. Execute/Rode a aplicação através do Visual Studio.
